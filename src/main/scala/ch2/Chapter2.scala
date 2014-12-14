@@ -18,9 +18,7 @@ object Chapter2 {
     def loop(x: Array[A]): Boolean = {
       if (x.size < 2) true
       else {
-        val first: A = x.head
-        val next: A = x.tail.head
-        if (ordered(first, next)) loop(x.tail)
+        if (ordered(x.head, x.tail.head)) loop(x.tail)
         else false
       }
     }
