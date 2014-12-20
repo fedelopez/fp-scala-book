@@ -21,17 +21,17 @@ class Chapter3Spec extends FlatSpec with Matchers {
     tail should equal(Chapter3.List())
   }
 
-  it should "3.4: should set the first element in the list" in {
+  it should "3.3: should set the first element in the list" in {
     val tail: Chapter3.List[Int] = Chapter3.List.setHead(Chapter3.List(1, 2, 3, 4), 6)
     tail should equal(Chapter3.List(6, 2, 3, 4))
   }
 
-  it should "3.4: should set the first element in the empty list" in {
+  it should "3.3: should set the first element in the empty list" in {
     val result: Chapter3.List[Int] = Chapter3.List.setHead(Chapter3.List(), 1)
     result should equal(Chapter3.List(1))
   }
 
-  it should "3.4: should set the first element in the singleton list" in {
+  it should "3.3: should set the first element in the singleton list" in {
     val result: Chapter3.List[Int] = Chapter3.List.setHead(Chapter3.List(1), 2)
     result should equal(Chapter3.List(2))
   }
