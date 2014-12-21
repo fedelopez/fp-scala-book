@@ -35,4 +35,34 @@ class Chapter3Spec extends FlatSpec with Matchers {
     val result: Chapter3.List[Int] = Chapter3.List.setHead(Chapter3.List(1), 2)
     result should equal(Chapter3.List(2))
   }
+
+  it should "3.4 drop the first element in the list" in {
+    val list: Chapter3.List[Int] = Chapter3.List(1, 2, 3, 4)
+    val result: Chapter3.List[Int] = Chapter3.List.drop(list, 1)
+    result should equal(Chapter3.List(2, 3, 4))
+  }
+
+  it should "3.4 drop the first and second elements in the list" in {
+    val list: Chapter3.List[Int] = Chapter3.List(1, 2, 3, 4)
+    val result: Chapter3.List[Int] = Chapter3.List.drop(list, 2)
+    result should equal(Chapter3.List(3, 4))
+  }
+
+  it should "3.4 return empty list when drop empty list" in {
+    val list: Chapter3.List[Int] = Chapter3.List()
+    val result: Chapter3.List[Int] = Chapter3.List.drop(list, 2)
+    result should equal(Chapter3.List())
+  }
+
+  it should "3.5 drop the first element in the list" in {
+    val list: Chapter3.List[Int] = Chapter3.List(21, 20, 3, 4)
+    val result: Chapter3.List[Int] = Chapter3.List.dropWhile(list, (value: Int) => value > 20)
+    result should equal(Chapter3.List(20, 3, 4))
+  }
+
+  it should "3.5 not continue when function resturns false" in {
+    val list: Chapter3.List[Int] = Chapter3.List(5, 25, 3, 25)
+    val result: Chapter3.List[Int] = Chapter3.List.dropWhile(list, (value: Int) => value % 5 == 0)
+    result should equal(Chapter3.List(3, 25))
+  }
 }

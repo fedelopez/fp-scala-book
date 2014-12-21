@@ -38,6 +38,27 @@ object Chapter3 {
       case Nil => Cons(newHead, Nil)
       case Cons(xs, y) => Cons(newHead, tail(x))
     }
+
+    /**
+     * exercise 3.4
+     * Generalise tail to the function drop, which removes the first n elements from a list. 
+     */
+    def drop[A](list: List[A], n: Int): List[A] = {
+      def loop(x: List[A], idx: Int): List[A] = {
+        if (idx == n) x
+        else loop(tail(x), idx + 1)
+      }
+      loop(list, 0)
+    }
+
+    /**
+     * exercise 3.5
+     * Implement the function dropWhile, which removes elements from the list as long as they match a predicate.
+     */
+    def dropWhile[A](list: List[A], f: A => Boolean): List[A] = list match {
+      case Nil => Nil
+      case Cons(xs, y) => if (f(xs)) dropWhile(y, f) else Cons(xs, y)
+    }
   }
 
   /**
