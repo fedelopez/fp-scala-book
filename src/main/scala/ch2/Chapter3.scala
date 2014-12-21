@@ -57,7 +57,7 @@ object Chapter3 {
      */
     def dropWhile[A](list: List[A], f: A => Boolean): List[A] = list match {
       case Nil => Nil
-      case Cons(xs, y) => if (f(xs)) dropWhile(y, f) else Cons(xs, y)
+      case Cons(xs, y) => if (f(xs)) dropWhile(y, f) else list
     }
   }
 

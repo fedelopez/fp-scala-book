@@ -60,9 +60,15 @@ class Chapter3Spec extends FlatSpec with Matchers {
     result should equal(Chapter3.List(20, 3, 4))
   }
 
-  it should "3.5 not continue when function resturns false" in {
+  it should "3.5 not continue when function returns false" in {
     val list: Chapter3.List[Int] = Chapter3.List(5, 25, 3, 25)
     val result: Chapter3.List[Int] = Chapter3.List.dropWhile(list, (value: Int) => value % 5 == 0)
     result should equal(Chapter3.List(3, 25))
+  }
+
+  it should "3.5 drop all elements" in {
+    val list: Chapter3.List[Int] = Chapter3.List(1, 2, 3, 4)
+    val result: Chapter3.List[Int] = Chapter3.List.dropWhile(list, (value: Int) => value > 0)
+    result should equal(Chapter3.List())
   }
 }
