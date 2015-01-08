@@ -71,4 +71,10 @@ class Chapter3Spec extends FlatSpec with Matchers {
     val result: Chapter3.List[Int] = Chapter3.List.dropWhile(list, (value: Int) => value > 0)
     result should equal(Chapter3.List())
   }
+
+  it should "3.6 return all the elements except the last one" in {
+    val list: Chapter3.List[Int] = Chapter3.List(1, 2, 3, 4)
+    val result: Chapter3.List[Int] = Chapter3.List.init(list)
+    result should equal(Chapter3.List(1, 2, 3))
+  }
 }

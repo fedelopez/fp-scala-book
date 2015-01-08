@@ -39,6 +39,11 @@ object Chapter3 {
       case Cons(xs, y) => Cons(newHead, tail(x))
     }
 
+    def append[A](a1: List[A], a2: List[A]): List[A] = a1 match {
+      case Nil => a2
+      case Cons(h, t) => Cons(h, append(t, a2))
+    }
+
     /**
      * exercise 3.4
      * Generalise tail to the function drop, which removes the first n elements from a list. 
@@ -58,6 +63,19 @@ object Chapter3 {
     def dropWhile[A](list: List[A], f: A => Boolean): List[A] = list match {
       case Nil => Nil
       case Cons(xs, y) => if (f(xs)) dropWhile(y, f) else list
+    }
+
+    /**
+     * exercise 3.6
+     * Implement a function, init, that returns a list consisting of all but the last element.
+     */
+    def init[A](l: List[A]): List[A] = {
+      def loop(x: List[A], y: List[A]): List[A] = x match {
+        case Nil => Nil
+        case Cons(h, Nil) => y
+        case Cons(h, t) => loop(t, append(y, Cons(h, Nil)))
+      }
+      loop(l, List())
     }
   }
 
