@@ -77,4 +77,12 @@ class Chapter3Spec extends FlatSpec with Matchers {
     val result: Chapter3.List[Int] = Chapter3.List.init(list)
     result should equal(Chapter3.List(1, 2, 3))
   }
+
+  it should "3.9 compute the length of a list using foldRight" in {
+    Chapter3.List.length(Chapter3.List[Int](1, 2, 3, 4)) should be(4)
+  }
+
+  it should "3.10 foldLeft" in {
+    Chapter3.List.foldLeft(Chapter3.List[Int](1, 2, 3, 4), 0)(_ + _) should be(10)
+  }
 }

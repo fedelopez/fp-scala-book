@@ -82,6 +82,33 @@ object Chapter3 {
       case Nil => z
       case Cons(x, xs) => f(x, foldRight(xs, z)(f))
     }
+
+    def sum(as: List[Int]): Int = {
+      foldRight(as, 0)((x, y) => x + y)
+    }
+
+    def prod(as: List[Double]): Double = {
+      foldRight(as, 1.0)((x, y) => x * y)
+    }
+
+    /**
+     * exercise 3.9
+     * Compute the length of a list using foldRight
+     */
+    def length[A](as: List[A]): Int =
+      foldRight(as, 0)((x, y) => 1 + length(tail(as)))
+
+    /**
+     * exercise 3.10
+     * Write another general recursion function, foldLeft, that is tail-recursive.
+     */
+    def foldLeft[A, B](as: List[A], z: B)(f: (A, B) => B): B = {
+      def loop(x: List[A], acc: B): B = x match {
+        case Nil => acc
+        case Cons(h, t) => loop(t, f(h, acc))
+      }
+      loop(as, z)
+    }
   }
 
   /**
