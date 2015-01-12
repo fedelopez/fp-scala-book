@@ -84,5 +84,19 @@ class Chapter3Spec extends FlatSpec with Matchers {
 
   it should "3.10 foldLeft" in {
     Chapter3.List.foldLeft(Chapter3.List[Int](1, 2, 3, 4), 0)(_ + _) should be(10)
+    Chapter3.List.foldLeft(Chapter3.List[Int](1, 2, 3, 4), 1)(_ + _) should be(11)
+  }
+
+  it should "3.11 prod using foldLeft" in {
+    Chapter3.List.foldLeft(Chapter3.List[Int](1, 2, 3, 4), 1)(_ * _) should be(24)
+  }
+
+  it should "3.11 compute the length of a list using foldLeft" in {
+    Chapter3.List.lengthFoldLeft(Chapter3.List[Int](1, 2, 3, 4)) should be(4)
+  }
+
+  it should "3.12 return the reverse list" in {
+    Chapter3.List.reverse(Chapter3.List[Int](1, 2, 3, 4)) should equal(Chapter3.List[Int](4, 3, 2, 1))
+    Chapter3.List.reverseUsingFold(Chapter3.List[Int](1, 2, 3, 4)) should equal(Chapter3.List[Int](4, 3, 2, 1))
   }
 }

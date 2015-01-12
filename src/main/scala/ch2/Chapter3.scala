@@ -105,7 +105,35 @@ object Chapter3 {
       }
       loop(as, z)
     }
+
+    /**
+     * exercise 3.11
+     * Compute the length of a list using foldLeft
+     */
+    def lengthFoldLeft[A](as: List[A]): Int =
+      foldLeft(as, 0)((x, y) => 1 + length(tail(as)))
+
+    /**
+     * exercise 3.11
+     * Write a function that returns the reverse of a list
+     */
+    def reverse[A](as: List[A]): List[A] = {
+      def loop(x: List[A], res: List[A]): List[A] = x match {
+        case Nil => res
+        case Cons(h, t) => loop(t, Cons(h, res))
+      }
+      loop(as, List())
+    }
+
+    /**
+     * exercise 3.11
+     * Write a function that returns the reverse of a list using fold
+     */
+    def reverseUsingFold[A](as: List[A]): List[A] = {
+      foldLeft(as, List[A]())((h: A, acc: List[A]) => append(List(h), acc))
+    }
   }
+
 
   /**
    * What will be the result of the following expression?
