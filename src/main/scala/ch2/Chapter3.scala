@@ -114,7 +114,7 @@ object Chapter3 {
       foldLeft(as, 0)((x, y) => 1 + length(tail(as)))
 
     /**
-     * exercise 3.11
+     * exercise 3.12
      * Write a function that returns the reverse of a list
      */
     def reverse[A](as: List[A]): List[A] = {
@@ -126,7 +126,7 @@ object Chapter3 {
     }
 
     /**
-     * exercise 3.11
+     * exercise 3.12
      * Write a function that returns the reverse of a list using fold
      */
     def reverseUsingFold[A](as: List[A]): List[A] = {
