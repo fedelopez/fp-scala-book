@@ -147,7 +147,7 @@ object Chapter3 {
      * Implement append in terms of either foldLeft or foldRight
      */
     def appendUsingFold[A](a1: List[A], a2: List[A]): List[A] =
-      foldRight(a1, a2)((x: A, acc: List[A]) => Cons(x, acc))
+      foldRight(a1, a2)((h: A, acc: List[A]) => Cons(h, acc))
   }
 
 
