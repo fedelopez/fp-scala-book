@@ -137,15 +137,6 @@ object Chapter3 {
      * exercise 3.14
      * Implement append in terms of either foldLeft or foldRight
      */
-    def appendUsingFold1[A](a1: List[A], a2: List[A]): List[A] = a1 match {
-      case Nil => a2
-      case Cons(h, t) => Cons(h, append(t, a2))
-    }
-
-    /**
-     * exercise 3.14
-     * Implement append in terms of either foldLeft or foldRight
-     */
     def appendUsingFold[A](a1: List[A], a2: List[A]): List[A] =
       foldRight(a1, a2)((h: A, acc: List[A]) => Cons(h, acc))
   }
