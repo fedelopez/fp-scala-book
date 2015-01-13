@@ -132,6 +132,22 @@ object Chapter3 {
     def reverseUsingFold[A](as: List[A]): List[A] = {
       foldLeft(as, List[A]())((h: A, acc: List[A]) => append(List(h), acc))
     }
+
+    /**
+     * exercise 3.14
+     * Implement append in terms of either foldLeft or foldRight
+     */
+    def appendUsingFold1[A](a1: List[A], a2: List[A]): List[A] = a1 match {
+      case Nil => a2
+      case Cons(h, t) => Cons(h, append(t, a2))
+    }
+
+    /**
+     * exercise 3.14
+     * Implement append in terms of either foldLeft or foldRight
+     */
+    def appendUsingFold[A](a1: List[A], a2: List[A]): List[A] =
+      foldRight(a1, a2)((x: A, acc: List[A]) => Cons(x, acc))
   }
 
 

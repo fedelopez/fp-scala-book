@@ -99,4 +99,8 @@ class Chapter3Spec extends FlatSpec with Matchers {
     Chapter3.List.reverse(Chapter3.List[Int](1, 2, 3, 4)) should equal(Chapter3.List[Int](4, 3, 2, 1))
     Chapter3.List.reverseUsingFold(Chapter3.List[Int](1, 2, 3, 4)) should equal(Chapter3.List[Int](4, 3, 2, 1))
   }
+
+  it should "3.14 append using fold" in {
+    Chapter3.List.appendUsingFold(Chapter3.List[Int](1, 2, 3), Chapter3.List[Int](4, 5, 6)) should equal(Chapter3.List[Int](1, 2, 3, 4, 5, 6))
+  }
 }
