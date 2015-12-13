@@ -1,4 +1,4 @@
-package ch2
+package cat.pseudocodi
 
 import org.scalatest.{FlatSpec, Matchers}
 

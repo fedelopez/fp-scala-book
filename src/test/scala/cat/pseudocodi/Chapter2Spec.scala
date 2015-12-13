@@ -1,7 +1,7 @@
-package ch2
+package cat.pseudocodi
 
+import cat.pseudocodi.Chapter2._
 import org.scalatest.{FlatSpec, Matchers}
-import Chapter2._
 
 /**
  * @author fede
