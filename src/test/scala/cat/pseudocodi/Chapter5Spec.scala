@@ -21,12 +21,19 @@ class Chapter5Spec extends FlatSpec with Matchers {
     * exercise 5.2
     * Write the function take(n) for returning the first n elements of a Stream,
     */
-
+  it should "return the first n elements of a Stream" in {
+    val s: Chapter5.Stream[String] = Chapter5.Stream("apple", "microsoft", "gigabyte", "pivotal", "google")
+    s.take(3).toList should be(List("apple", "microsoft", "gigabyte"))
+  }
 
   /**
     * exercise 5.2
-    * Write the function drop(n) for skipping the first n elements of a Stream.
+    * Write the function drop(n) for skipping the first n elements of a Stream,
     */
-
-
+  it should "skip the first n elements of a Stream" in {
+    val s: Chapter5.Stream[String] = Chapter5.Stream("apple", "microsoft", "gigabyte", "pivotal", "google")
+    s.drop(0).toList should be(List("apple", "microsoft", "gigabyte", "pivotal", "google"))
+    s.drop(3).toList should be(List("pivotal", "google"))
+    s.drop(4).toList should be(List("google"))
+  }
 }
