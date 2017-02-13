@@ -6,6 +6,16 @@ package cat.pseudocodi
 object Chapter5 {
 
   sealed trait Stream[+A] {
+    def forAll(p: A => Boolean): Boolean = this match {
+      case Cons(h, t) => p(h()) && t().forAll(p)
+      case _ => true
+    }
+
+    def takeWhile(p: A => Boolean): Stream[A] = this match {
+      case Cons(h, t) if p(h()) => Stream.cons(h(), t().takeWhile(p))
+      case _ => Stream.empty
+    }
+
     def take(n: Int): Stream[A] = this match {
       case Cons(h, t) if n > 1 => Stream.cons(h(), t().take(n - 1))
       case Cons(h, _) if n == 1 => Stream.cons(h(), Stream.empty)

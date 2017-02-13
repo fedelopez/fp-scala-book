@@ -36,4 +36,23 @@ class Chapter5Spec extends FlatSpec with Matchers {
     s.drop(3).toList should be(List("pivotal", "google"))
     s.drop(4).toList should be(List("google"))
   }
+
+  /**
+    * exercise 5.3
+    * Write the function takeWhile for returning all starting elements of a stream that match the given predicate
+    */
+  it should "take elements starting with a" in {
+    val s: Chapter5.Stream[String] = Chapter5.Stream("alaska", "atlanta", "gigabyte", "pivotal", "google")
+    s.takeWhile((s: String) => s.startsWith("a")).toList should be(List("alaska", "atlanta"))
+  }
+
+  /**
+    * exercise 5.4
+    * Write the function forAll which checks that all elements match the given predicate
+    */
+  it should "hecks that all elements match the given predicate" in {
+    val s: Chapter5.Stream[String] = Chapter5.Stream("alaska", "atlanta", "gigabyte", "pivotal", "tesla")
+    s.forAll((s: String) => s.contains("a")) should be(true)
+    s.forAll((s: String) => s.contains("l")) should be(false)
+  }
 }
